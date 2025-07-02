@@ -1,5 +1,5 @@
 ---
-
+// Fajl: src/pages/gallery.astro
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 
@@ -13,13 +13,20 @@ const sveSlike = await import.meta.glob<{ default: ImageMetadata }>(
     <h1>Galerija Sela</h1>
     <p>Pogledajte lepote našeg kraja.</p>
 
-    <div class="image-grid">
+    <div class="image-grid" id="gallery">
       {
         Object.values(sveSlike).map(async (slikaPromise) => {
           const slika = (await slikaPromise()).default;
           return (
-            // Svaka slika je sada unutar linka koji vodi ka samoj sebi
-            <a href={slika.src} class="grid-item" data-caption="Slika iz našeg sela">
+            // 2. DODALI SMO data-pswp-width i data-pswp-height ATRIBUTE
+            <a 
+              href={slika.src} 
+              class="grid-item" 
+              data-pswp-width={slika.width}
+              data-pswp-height={slika.height}
+              target="_blank" 
+              rel="noreferrer"
+            >
               <Image src={slika} alt="Slika iz galerije" loading="lazy" />
             </a>
           );
@@ -29,31 +36,44 @@ const sveSlike = await import.meta.glob<{ default: ImageMetadata }>(
   </main>
 </BaseLayout>
 
+<script>
+  import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.esm.js';
+
+  const lightbox = new PhotoSwipeLightbox({
+    // Kontejner koji sadrži linkove do slika
+    gallery: '#gallery',
+    // Svi <a> tagovi unutar kontejnera će otvarati galeriju
+    children: 'a',
+    // Učitavanje PhotoSwipe koda po potrebi
+    pswpModule: () => import('https://unpkg.com/photoswipe@5/dist/photoswipe.esm.js')
+  });
+
+  // Pokreni galeriju!
+  lightbox.init();
+</script>
+
 <style>
- 
+  /* CSS ostaje isti kao i pre */
   .gallery-container {
     padding: 40px 20px;
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
   }
-
   .image-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 16px;
     margin-top: 40px;
   }
-
   .grid-item {
-    display: block; 
+    display: block;
     width: 100%;
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     aspect-ratio: 1 / 1;
   }
-
   .grid-item img {
     display: block;
     width: 100%;
@@ -61,11 +81,9 @@ const sveSlike = await import.meta.glob<{ default: ImageMetadata }>(
     object-fit: cover;
     transition: transform 0.3s ease;
   }
-
   .grid-item:hover img {
     transform: scale(1.05);
   }
-
   body {
     overflow-y: auto !important;
     height: auto !important;
