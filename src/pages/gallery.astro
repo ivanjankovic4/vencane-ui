@@ -18,7 +18,6 @@ const sveSlike = await import.meta.glob<{ default: ImageMetadata }>(
         Object.values(sveSlike).map(async (slikaPromise) => {
           const slika = (await slikaPromise()).default;
           return (
-            // 2. DODALI SMO data-pswp-width i data-pswp-height ATRIBUTE
             <a 
               href={slika.src} 
               class="grid-item" 
@@ -40,20 +39,16 @@ const sveSlike = await import.meta.glob<{ default: ImageMetadata }>(
   import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.esm.js';
 
   const lightbox = new PhotoSwipeLightbox({
-    // Kontejner koji sadrži linkove do slika
     gallery: '#gallery',
-    // Svi <a> tagovi unutar kontejnera će otvarati galeriju
     children: 'a',
-    // Učitavanje PhotoSwipe koda po potrebi
     pswpModule: () => import('https://unpkg.com/photoswipe@5/dist/photoswipe.esm.js')
   });
 
-  // Pokreni galeriju!
   lightbox.init();
 </script>
 
 <style>
-  /* CSS ostaje isti kao i pre */
+
   .gallery-container {
     padding: 40px 20px;
     max-width: 1200px;
