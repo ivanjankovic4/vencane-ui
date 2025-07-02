@@ -1,0 +1,105 @@
+---
+// Fajl: src/pages/o-selu.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+// 1. Uvozimo istu pozadinsku sliku kao sa početne strane
+import backgroundImage from '../assets/dji_homepage_picture.jpg';
+---
+<BaseLayout>
+    <main class="page-content">
+        
+        <div class="header-wrapper">
+            <div class="header-background" style={`background-image: url(${backgroundImage.src})`}></div>
+            <div class="header-content">
+                <h1>Priča o Venčanama</h1>
+            </div>
+        </div>
+        
+        <div class="text-container">
+            <section>
+                <h2>Šumadijsko selo sa bogatom tradicijom</h2>
+                <p>
+                    Venčane je živopisno naselje zbijenog tipa u srcu Šumadije, administrativno pripada opštini Aranđelovac. Udobno smešteno na severoistočnim padinama planine Venčac, selo odiše mirom i autentičnim duhom srpskog sela, okruženo prelepom prirodom, voćnjacima i pašnjacima.
+                </p>
+            </section>
+            
+            <section>
+                <h2>Istorija i Kultura</h2>
+                <p>
+                    Istorija Venčana je duboko ukorenjena u prošlost Šumadije. Selo se ponosi svojom Crkvom brvnarom Svete Petke, koja predstavlja ne samo duhovni centar meštana, već i značajan spomenik kulture. U srcu sela dominira nova crkva Svetog Đorđa, izgrađena 1862. godine, čiji je ikonostas delo čuvenog majstora Nikole Markovića.
+                </p>
+            </section>
+            
+            <section>
+                <h2>Znamenite ličnosti i događaji</h2>
+                <p>
+                    Najpoznatija žiteljka sela bila je ruska doktorka <strong>Anastasija Zavaljevska</strong>, koja je, kao izbeglica iz Rusije, u Venčanama osnovala jedno od prvih seoskih porodilišta na Balkanu. Njena zaostavština i danas živi u sećanju meštana. U novije doba, glumac Mikića Petronijević je 2021. godine otvorio centar "Svici" za boravak dece ometene u razvoju.
+                </p>
+            </section>
+        </div>
+    </main>
+</BaseLayout>
+
+<style>
+    /* 3. CSS Stilovi su ažurirani */
+    body {
+        overflow-y: auto !important;
+        height: auto !important;
+        background-color: #111;
+    }
+    .page-content {
+        color: #f0f0f0;
+    }
+
+    /* Novi stilovi za header */
+    .header-wrapper {
+        position: relative; /* Važno za pozicioniranje elemenata unutar njega */
+        height: 40vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        overflow: hidden; /* Skriva delove zamućenja koji vire */
+    }
+
+    .header-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        filter: blur(5px);
+        transform: scale(1.1); /* Blago zumira sliku da se ivice blura ne vide */
+        z-index: 1;
+    }
+
+    .header-content {
+        position: relative;
+        z-index: 2; /* Postavlja sadržaj iznad pozadine */
+        color: white;
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+        padding: 20px;
+        /* Polutransparentni sloj preko slike za bolju čitljivost */
+        background-color: rgba(0, 0, 0, 0.4);
+        border-radius: 10px;
+    }
+
+    .header-content h1 {
+        font-family: 'Orbitron', sans-serif;
+        font-size: clamp(2rem, 6vw, 4rem);
+        margin: 0;
+    }
+
+    /* Stilovi za tekstualni sadržaj ostaju isti */
+    .text-container {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 0 20px;
+        line-height: 1.8;
+    }
+    section { margin-bottom: 40px; }
+    h2 {
+        border-bottom: 2px solid white; padding-bottom: 10px; margin-bottom: 20px;
+    }
+</style>

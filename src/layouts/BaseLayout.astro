@@ -1,50 +1,58 @@
 ---
+
 ---
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="sr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selo Venčane - Dobrodošli</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Selo Venčane - Dobrodošli</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/photoswipe@5/dist/photoswipe.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Orbitron:wght@700&display=swap"
+            rel="stylesheet"
+        />
 
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="hamburger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-            <ul class="nav-links">
-                <li><a href="/">Pocetna</a></li>
-                <li><a href="/wip">O selu</a></li>
-                <li><a href="/wip">Aktivnosti</a></li>
-                <li><a href="/gallery">Galerija</a></li>
-                <li><a href="/wip">Turizam</a></li>
-                <li><a href="/wip">Kontakt</a></li>
-            </ul>
-        </nav>
-    </header>
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/photoswipe@5/dist/photoswipe.css"
+        />
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="hamburger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="/">Pocetna</a></li>
+                    <li><a href="/o-selu">O selu</a></li>
+                    <li><a href="/wip">Aktivnosti</a></li>
+                    <li><a href="/gallery">Galerija</a></li>
+                    <li><a href="/wip">Turizam</a></li>
+                    <li><a href="/wip">Kontakt</a></li>
+                </ul>
+            </nav>
+        </header>
 
-    <slot />
+        <slot />
 
-    <script>
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        if (hamburger && navLinks) {
-            hamburger.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-                hamburger.classList.toggle('toggle');
-            });
-        }
-    </script>
-</body>
+        <script>
+            const hamburger = document.querySelector(".hamburger");
+            const navLinks = document.querySelector(".nav-links");
+            if (hamburger && navLinks) {
+                hamburger.addEventListener("click", () => {
+                    navLinks.classList.toggle("active");
+                    hamburger.classList.toggle("toggle");
+                });
+            }
+        </script>
+    </body>
 </html>
 
 <style is:global>
@@ -53,7 +61,7 @@
         padding: 0;
         background: black;
         color: white;
-        font-family: 'Roboto', sans-serif;
+        font-family: "Inter", sans-serif;
     }
 
     header {
@@ -68,25 +76,82 @@
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
 
-    
-    nav { display: flex; justify-content: flex-end; align-items: center; }
-    nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
-    nav ul li { margin-left: 30px; }
-    nav ul li a { color: white; text-decoration: none; font-size: 16px; font-weight: 500; padding-bottom: 5px; border-bottom: 2px solid transparent; transition: border-color 0.3s ease; }
-    nav ul li a:hover { border-bottom-color: white; }
-    
-    .hamburger { display: none; cursor: pointer; }
-    .hamburger div { width: 25px; height: 3px; background-color: white; margin: 5px 0; transition: all 0.3s ease; }
+    nav {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+    nav ul li {
+        margin-left: 30px;
+    }
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 500;
+        padding-bottom: 5px;
+        border-bottom: 2px solid transparent;
+        transition: border-color 0.3s ease;
+    }
+    nav ul li a:hover {
+        border-bottom-color: white;
+    }
+
+    .hamburger {
+        display: none;
+        cursor: pointer;
+    }
+    .hamburger div {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 5px 0;
+        transition: all 0.3s ease;
+    }
 
     @media (max-width: 768px) {
-        header { padding: 15px 20px; }
-        .hamburger { display: block; z-index: 20; }
-        nav ul { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background-color: rgba(0, 0, 0, 0.9); flex-direction: column; justify-content: center; align-items: center; }
-        nav ul.active { display: flex; }
-        nav ul li { margin: 20px 0; }
-        nav ul li a { font-size: 24px; }
-        .hamburger.toggle .line1 { transform: rotate(-45deg) translate(-5px, 6px); }
-        .hamburger.toggle .line2 { opacity: 0; }
-        .hamburger.toggle .line3 { transform: rotate(45deg) translate(-5px, -6px); }
+        header {
+            padding: 15px 20px;
+        }
+        .hamburger {
+            display: block;
+            z-index: 20;
+        }
+        nav ul {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.9);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        nav ul.active {
+            display: flex;
+        }
+        nav ul li {
+            margin: 20px 0;
+        }
+        nav ul li a {
+            font-size: 24px;
+        }
+        .hamburger.toggle .line1 {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        .hamburger.toggle .line2 {
+            opacity: 0;
+        }
+        .hamburger.toggle .line3 {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
     }
 </style>
