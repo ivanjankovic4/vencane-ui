@@ -1,0 +1,56 @@
+---
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import backgroundImage from '../assets/dji_homepage_picture.svg';
+---
+
+<BaseLayout>
+
+    <div class="background-container" style={`background-image: url(${backgroundImage.src})`}></div>
+    
+    <main class="content">
+        <h1>SELO VENCANE</h1>
+    </main>
+    
+</BaseLayout>
+
+<style>
+    .background-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-size: cover;
+        background-position: center;
+        filter: blur(5px);
+        transform: scale(1.05);
+    }
+
+    body {
+        overflow: hidden; 
+    }
+
+    .content { 
+        height: 100vh; 
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        text-align: center; 
+        padding: 0 20px; 
+    }
+
+    .content h1 { 
+        font-family: 'Orbitron', sans-serif; 
+        font-size: 5vw; 
+        letter-spacing: 3px; 
+        text-transform: uppercase; 
+        text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7); 
+    }
+
+    @media (max-width: 768px) {
+        .content h1 { font-size: 10vw; }
+    }
+</style>
