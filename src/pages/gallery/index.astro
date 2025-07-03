@@ -1,0 +1,69 @@
+---
+// Fajl: src/pages/gallery/index.astro (FINALNA DIJAGNOSTIČKA VERZIJA)
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AlbumCard from '../../components/AlbumCard.astro';
+
+console.log('[KORAK 1] Počinjem. Učitavam sve slike...');
+
+const allImages = await import.meta.glob(
+  '/src/assets/gallery/**/*.{jpeg,jpg,png,gif,webp}'
+);
+
+console.log('[KORAK 2] Pronađeno ukupno slika:', Object.keys(allImages).length);
+// Ako je ovde 0, problem je u putanji ili slikama. Ako nije, idemo dalje.
+
+const albums: { [key: string]: any } = {};
+const basePath = '/src/assets/gallery/';
+
+console.log('[KORAK 3] Počinjem grupisanje u albume...');
+
+for (const path in allImages) {
+    // Logika za izvlačenje imena foldera
+    const slug = path.substring(basePath.length).split('/')[0];
+
+    console.log(`--> Analiziram putanju: "${path}" | Izvučen slug: "${slug}"`);
+
+    if (slug && !albums[slug]) {
+        albums[slug] = {
+            loader: allImages[path],
+        };
+        console.log(`    **** Kreiran novi album: "${slug}"`);
+    }
+}
+
+console.log('[KORAK 4] Završeno grupisanje. Finalni albumi su:', Object.keys(albums));
+---
+<BaseLayout>
+    <main class="page-container">
+        <h1>Albumi Galerije</h1>
+        <p>Izaberite album koji želite da pogledate.</p>
+
+        <div class="albums-grid">
+            {Object.entries(albums).map(async ([slug, data]) => (
+                <AlbumCard 
+                    albumSlug={slug}
+                    coverImage={(await data.loader()).default}
+                />
+            ))}
+        </div>
+    </main>
+</BaseLayout>
+
+<style>
+    body {
+        overflow-y: auto !important;
+        height: auto !important;
+    }
+    .page-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        text-align: center;
+    }
+    .albums-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 24px;
+        margin-top: 40px;
+    }
+</style>

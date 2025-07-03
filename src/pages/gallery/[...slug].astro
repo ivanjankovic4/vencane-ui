@@ -1,0 +1,96 @@
+---
+// Fajl: src/pages/gallery/[...slug].astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+
+// Ova funkcija govori Astro-u koje stranice da generiše
+export async function getStaticPaths() {
+  // 1. Pronalazimo sve slike u svim podfolderima galerije
+  const allImages = await import.meta.glob('/src/assets/gallery/**/*.{jpeg,jpg,png,gif,webp,}');
+
+  // 2. Izvlačimo jedinstvena imena foldera (slugs) iz putanja slika
+  const uniqueSlugs = new Set(
+    Object.keys(allImages).map(path => {
+      // Iz putanje "/src/assets/gallery/trojice-2025/slika.jpg" izvlačimo "trojice-2025"
+      return path.split('/')[4];
+    })
+  );
+
+  // 3. Kreiramo listu putanja koje Astro treba da napravi
+  const paths = Array.from(uniqueSlugs).map(slug => ({
+    params: { slug }
+  }));
+
+  // 4. Dodajemo i putanju za osnovnu /gallery stranicu, koja će prikazati "opste"
+  paths.push({ params: { slug: undefined } });
+  
+  return paths;
+}
+
+const gallerySlug = Astro.params.slug || 'opste';
+const pageTitle = `Galerija: ${gallerySlug.replace('-', ' ')}`;
+
+const sveSlikeIzFoldera = await import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/gallery/**/*.{jpeg,jpg,png,gif,webp}'
+);
+
+const slikeZaPrikaz = Object.fromEntries(
+  Object.entries(sveSlikeIzFoldera).filter(([path]) => 
+    path.startsWith(`/src/assets/gallery/${gallerySlug}/`)
+  )
+);
+---
+
+<BaseLayout>
+  <main class="gallery-container">
+    <h1 class="gallery-title">{pageTitle}</h1>
+    
+    {Object.keys(slikeZaPrikaz).length === 0 ? (
+      <p>Za ovu kategoriju trenutno nema slika.</p>
+    ) : (
+      <div class="image-grid" id="gallery">
+        {
+          Object.values(slikeZaPrikaz).map(async (slikaPromise) => {
+            const slika = (await slikaPromise()).default;
+            return (
+              <a 
+                href={slika.src} 
+                class="grid-item" 
+                data-pswp-width={slika.width}
+                data-pswp-height={slika.height}
+                target="_blank" 
+                rel="noreferrer"
+              >
+                <Image src={slika} alt="Slika iz galerije" loading="lazy" />
+              </a>
+            );
+          })
+        }
+      </div>
+    )}
+  </main>
+</BaseLayout>
+
+<script>
+  // Script za PhotoSwipe ostaje isti
+  import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.esm.js';
+  
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: '#gallery',
+    children: 'a',
+    pswpModule: () => import('https://unpkg.com/photoswipe@5/dist/photoswipe.esm.js')
+  });
+  
+  lightbox.init();
+</script>
+
+<style>
+  /* CSS stilovi ostaju isti */
+  .gallery-container { padding: 40px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
+  .gallery-title { text-transform: capitalize; }
+  .image-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; margin-top: 40px; }
+  .grid-item { display: block; width: 100%; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); aspect-ratio: 1 / 1; }
+  .grid-item img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
+  .grid-item:hover img { transform: scale(1.05); }
+  body { overflow-y: auto !important; height: auto !important; }
+</style>

@@ -1,0 +1,64 @@
+---
+// Fajl: src/components/AlbumCard.astro (ISPRAVLJENA VERZIJA)
+import { Image } from 'astro:assets';
+
+export interface Props {
+  albumSlug: string;
+  // Ovde koristimo 'any' da zaobiđemo TypeScript grešku
+  coverImage: any;
+}
+const { albumSlug, coverImage } = Astro.props;
+
+const albumUrl = `/gallery/${albumSlug}`;
+const albumTitle = albumSlug.replace('-', ' ');
+---
+
+<a href={albumUrl} class="album-card">
+    <Image src={coverImage} alt={`Naslovna slika za album ${albumTitle}`} class="album-cover" />
+    <div class="album-overlay"></div>
+    <h3 class="album-title">{albumTitle}</h3>
+</a>
+
+<style>
+.album-card {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    aspect-ratio: 1 / 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.album-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.8);
+}
+.album-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+.album-card:hover .album-cover {
+    transform: scale(1.1);
+}
+.album-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 60%);
+}
+.album-title {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    margin: 0;
+    color: white;
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    text-shadow: 1px 1px 5px rgba(0,0,0,1);
+}
+</style>
