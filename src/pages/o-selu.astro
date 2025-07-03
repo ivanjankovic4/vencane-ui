@@ -1,101 +1,441 @@
 ---
-
+// Import BaseLayout component for consistent page structure
 import BaseLayout from '../layouts/BaseLayout.astro';
 
+// Import the background image for the header
 import backgroundImage from '../assets/dji_homepage_picture.jpg';
 ---
+
+{/* BaseLayout provides the fundamental structure for the page */}
 <BaseLayout>
+    {/* Main content area of the page */}
     <main class="page-content">
         
+        {/* Header section with a background image and title */}
         <div class="header-wrapper">
+            {/* Background image for the header, with a blur effect */}
             <div class="header-background" style={`background-image: url(${backgroundImage.src})`}></div>
+            {/* Content overlaying the background image */}
             <div class="header-content">
+                {/* Main title of the page */}
                 <h1>Priča o Venčanima</h1>
             </div>
         </div>
         
+        {/* Container for the main text content */}
         <div class="text-container">
+            {/* Section about Venčane's tradition */}
             <section>
                 <h2>Šumadijsko selo sa bogatom tradicijom</h2>
                 <p>
-                    Venčane je živopisno naselje zbijenog tipa u srcu Šumadije, administrativno pripada opštini Aranđelovac. Udobno smešteno na severoistočnim padinama planine Venčac, selo odiše mirom i autentičnim duhom srpskog sela, okruženo prelepom prirodom, voćnjacima i pašnjacima.
+                    Venčane je živopisno naselje zbijenog tipa u srcu Šumadije, administrativno pripada opštini Aranđelovac. Selo odiše mirom i autentičnim duhom srpskog sela, okruženo prelepom prirodom, voćnjacima i pašnjacima.
+                </p>
+                <p>
+                    Kao najsevernija tačka Šumadijskog okruga, Venčane se ističe i po svojoj površini i po broju stanovnika, svrstavajući se među najveća sela u opštini. Njegova strateška lokacija, u blizini Beograda i planine Kosmaj, čini ga sve popularnijom destinacijom za vikend odmor i beg od gradske vreve, što je posebno izraženo od pandemije COVID-19.
                 </p>
             </section>
             
+            {/* Section about Venčane's history and culture */}
             <section>
                 <h2>Istorija i Kultura</h2>
                 <p>
-                    Istorija Venčana je duboko ukorenjena u prošlost Šumadije. Selo se ponosi svojom Crkvom brvnarom Svete Petke, koja predstavlja ne samo duhovni centar meštana, već i značajan spomenik kulture. U srcu sela dominira nova crkva Svetog Đorđa, izgrađena 1862. godine, čiji je ikonostas delo čuvenog majstora Nikole Markovića.
+                    Istorija Venčana je duboko ukorenjena u prošlost Šumadije, sa prvim naseljima još sredinom 18. veka. Kroz vekove, selo je bilo krajnja tačka pet velikih istorijskih migratornih talasa, a šesti savremeni talas traje od nedavne pandemije.
+                </p>
+                <h3>Poreklo Imena</h3>
+                <p>
+                    Postoje dva predanja o poreklu imena sela. Jedno kaže da je selo dobilo ime jer se u maloj crkvi brvnari u šumi venčao Prota Mateja Nenadović. Drugo predanje sugeriše da je kralj Stefan Prvovenčani prenoćio u selu, te je od njegovog nadimka selo ponelo ime. Veruje se da je selo do Karađorđevog vremena nosilo ime Topli Dol, budući deo Rudničke nahije u Osmanskom carstvu, a kasnije i Karađorđeve Srbije. Važno je napomenuti da se u govoru i pismu često nailazi na pogrešnu varijantu imena "Venčani" umesto pravilnog "Venčane".
+                </p>
+                <h3>Hronološki Razvoj</h3>
+                <h4>Do 19. Veka</h4>
+                <p>
+                    U srednjem veku, Venčane su sigurno postojale kao malo usputno mesto, s obzirom na to da je kroz njega prolazio turski drum Beograd–Prizren. Ovaj drum je iz Beograda vodio preko kosmajskih sela, pa je kroz Venčane i Misaču izbijao na Rudnik, i odatle nastavljao ka jugu. U to vreme reka koja protiče kroz plodnu seosku ravnicu dobija naziv Turija, verovatno zbog istrebljenog srednjovekovnog govečeta, tura, koje je naseljavalo prostor današnje Šumadije. Iz tog perioda potiče staro srpsko groblje na Debeljaku. Spisi iz 1650. godine pominju lokalnu crkvu brvnaru u šumi pored potoka Pridvorice, posvećenu Svetom Pantelejmonu.
+                </p>
+                <h4>1801. – 1900.</h4>
+                <p>
+                    Prvi pisani podaci o selu u današnjem obliku vezuju se za 1818. godinu, kada je već imalo pet mesta za sahranjivanje. Godine 1850. u centru sela je izgrađena škola, koju su pohađala deca iz okolnih mesta. Dvanaest godina kasnije, 1862. godine, u centru sela je podignuta nova crkva posvećena Svetom Đorđu, čiji je ikonostas delo čuvenog majstora Nikole Markovića.
+                </p>
+                <h4>1901. – 2000.</h4>
+                <p>
+                    Ukazom Kralja od 16. novembra 1921. godine, Venčane je dobilo status varošice. Iste godine otvorena je ambulanta. Jak zemljotres 1922. godine izazvao je veliku materijalnu štetu. Godine 1930. uspostavljena je telefonska linija, što je označilo pravi procvat varošice. Međuratni i posleratni period obeležila je delatnost ruske doktorke Anastasije Zavaljevske.
+                </p>
+                <p>
+                    Posle rata, dominantnu ulogu u kulturnom i ekonomskom životu preuzela je Pridvorica izgradnjom Doma kulture 1946. godine. Škola u centru dobila je ime po Velji Gerasimoviću, lokalnom heroju. U godinama obnove, 1953. godine, Venčane su zabeležile najveću naseljenost sa 2.500 stanovnika. Rekonstrukcija seoske škole 1968. godine dala joj je današnji izgled.
+                </p>
+                <h4>2001. – Danas</h4>
+                <p>
+                    Do početka 21. veka, stanovnici Venčana su negovali kult Svetog Ilije. Početkom 2000-ih, selo je bilo domaćin turnira u fudbalu pod nazivom "Letnja liga Venčani". U Kamencii je 2021. godine glumac Mikica Petronijević otvorio centar "Svici" za smeštaj i dnevni boravak dece ometene u razvoju. Od 2023. godine, Dom kulture je domaćin manifestacije "Miholjski susreti".
                 </p>
             </section>
             
             <section>
                 <h2>Znamenite ličnosti i događaji</h2>
                 <p>
-                    Najpoznatija žiteljka sela bila je ruska doktorka <strong>Anastasija Zavaljevska</strong>, koja je, kao izbeglica iz Rusije, u Venčanama osnovala jedno od prvih seoskih porodilišta na Balkanu. Njena zaostavština i danas živi u sećanju meštana. U novije doba, glumac Mikića Petronijević je 2021. godine otvorio centar "Svici" za boravak dece ometene u razvoju.
+                    Najpoznatija žiteljka sela bila je ruska doktorka <strong>Anastasija Zavaljevska</strong>, koja je, kao izbeglica iz Rusije, u Venčanama osnovala jedno od prvih seoskih porodilišta na Balkanu. Njena zaostavština i danas živi u sećanju meštana. Njen dolazak u selo, na zaprežnim kolima iz Beograda, ostavio je neizbrisiv trag u lokalnoj istoriji.
                 </p>
+                <p>
+                    U novije doba, glumac Mikića Petronijević je 2021. godine otvorio centar "Svici" u Kamenici, posvećen smeštaju i dnevnom boravku dece ometene u razvoju, što predstavlja značajan doprinos zajednici.
+                </p>
+                <p>
+                    Selo je takođe bilo domaćin velikih koncerata poznatih folk zvezda poput Vesne Zmijanac, Zorice Marković i Zorice Brunclik u Domu kulture tokom sedamdesetih i osamdesetih godina.
+                </p>
+            </section>
+
+            <section>
+                <h2>Geografski Položaj i Prirodne Odlike</h2>
+                <p>
+                    Venčane se nalazi 60 kilometara južno od Beograda (44 km vazdušnom linijom) i 16 kilometara severno od Aranđelovca (11 km vazduhom). Putevi Beograd—Sopot—Aranđelovac i Beograd—Barajevo—Aranđelovac vode do sela, a obe deonice Sopot—Venčane i Barajevo—Venčane su asfaltirane. Selo ima ukupno 42 kilometra puteva.
+                </p>
+                <p>
+                    Venčane se graniči sa selom Drupom (opština Sopot, Beogradski okrug) na severu; sa Ranilovićem na istoku; sa Darosavom i Misačom na jugu (opština Aranđelovac); te sa Prkosavom i Rudovcima (opština Lazarevac, Beogradski okrug) i Tuležom (opština Aranđelovac) na zapadu. Proteže se 6.3 kilometara u pravcu sever-jug i 3.8 kilometara u pravcu zapad-istok, zauzimajući površinu od 27 km², što ga čini većim od nekoliko malih država.
+                </p>
+                <p>
+                    Selo je nastalo na obema stranama reke Turije, po pobrđu i u ravnici. Druga velika naseobina su domaćinstva naseljena po rodovima, delimično poređana uz potok Pridvoricu, najveću pritoku Turije.
+                </p>
+
+                <h3>Vode</h3>
+                <p>
+                    Reka Turija je najveća reka u selu i pripada crnomorskom slivu. Njene najveće povremene pritoke su Smojkovac, Todorovac, Cerovčić, Kusaja i Cigancica (desna strana) te Pridvorica, Reka (Sbrnjak i Ivančevac) i Dobrilovica (leva strana). Sve pritoke Turije presuše u letnjim i jesenjim mesecima. Korito potoka Pridvorica je 2002. godine uređeno u dužini od jednog kilometra zbog čestih prolećnih bujica.
+                </p>
+                <p>
+                    Nerešeno pitanje kanalizacije, koja se uglavnom izliva u lokalne potoke i Turiju, predstavlja veliki problem, naročito u zaseoku Kamenica gde ih uopšte nema. Veliki deo toka Turije je pretvoren u divlju deponiju i stanište pasa lutalica. Većina sela koristi bunarsku vodu za piće, koja ne presušuje. Sredinom 20. veka Turija je obilovala klenom i krkušom, ali ribljeg fonda danas gotovo da nema.
+                </p>
+
+                <h3>Brda</h3>
+                <p>
+                    Venčane je relativno nisko selo sa nadmorskom visinom od 190 metara. Najviša tačka sela je brdo <strong>Glavica (348m)</strong> u zaseoku Kamenica. Ostala brda uključuju Kusi Rt, Kameniti Oglavak (Drenjak), Žuti Oglavak, Debeljak i Vidićevac. Najniža tačka sela nalazi se u Pridvorici i iznosi 130m, dok je prosečna nadmorska visina 239 metara.
+                </p>
+                <p>
+                    
+                </p>
+
+                <h3>Klima</h3>
+                <p>
+                    U Venčanama vlada umereno-kontinentalna klima, karakteristična za Šumadiju, sa vrućim letima i hladnim zimama. Ravničarski deo (Pridvorica) ima hladnije zime i blaža leta u poređenju sa brdskom Kamenicom. Najviše padavina beleži se u septembru, oktobru i novembru, a najmanje u aprilu, martu i maju. Najviše temperature očekuju se u maju, junu, aprilu i julu.
+                </p>
+
+                <h3>Flora</h3>
+                <p>
+                    Venčane obiluje šumama i livadama, uglavnom u privatnom vlasništvu. Preovlađuju širokolisne listopadne šume (bukva, hrast, javor, breza, jasen, brest, bagrem). Pored tipične srpske flore, klima pogoduje i uzgoju duvana, limuna, kivija i smokve. U Venčanama raste domestifikovana jagorčevina, koja je u Crvenoj knjizi flore Srbije zavedena kao ugrožena biljna vrsta. Selo je tradicionalno poznato po proizvodnji dinja i lubenica.
+                </p>
+
+                <h3>Fauna</h3>
+                <p>
+                    U šumama se može sresti veliki broj životinja koje se sreću širom Srbije. Naajučestalije među njima su: srndać, srna, lisica, divlja svinja, jazavac, veverica, zec i tvor, a od ređih šakal i vuk. Prisutne su četiri vrste zmija: otrovna šarka, i neotrovne smukulja, belouška i rečna zmija, kao i gušteri, a od vodozemaca najčešće se sreću žabe i daždanjaci. Pored insekata, u Venčanama ima ugroženih leptira. Najbrojnije ptice su golubovi, vrabci, svrake, kosovi, jastrebovi, prepelice i fazani, dok su ređe senice, kukavice i sove.
+                </p>
+            </section>
+
+            <section>
+                <!-- <h2>Demografija</h2>
+                <p>
+                    Prema popisu iz 2011. godine, u Venčanama živi 1.317 stanovnika, što ga čini petim najnaseljenijim mestom u opštini Aranđelovac. U naselju živi 1.287 punoletnih stanovnika, sa prosečnom starošću od 42.5 godina (41.5 kod muškaraca i 43.5 kod žena). Venčane su u potpunosti naseljene Srbima, sa primetnim padom broja stanovnika tokom 20. veka.
+                </p>
+                <h3>Statistički Podaci</h3>
+                <p>Grafik promene broja stanovnika tokom 20. veka:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Godina</th>
+                            <th>Stanovnika</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1948.</td><td>2.404</td></tr>
+                        <tr><td>1953.</td><td>2.440</td></tr>
+                        <tr><td>1961.</td><td>2.235</td></tr>
+                        <tr><td>1971.</td><td>1.938</td></tr>
+                        <tr><td>1981.</td><td>1.895</td></tr>
+                        <tr><td>1991.</td><td>1.695</td></tr>
+                        <tr><td>2002.</td><td>1.576</td></tr>
+                        <tr><td>2011.</td><td>1.317</td></tr>
+                        <tr><td>2022.</td><td>1.065</td></tr>
+                    </tbody>
+                </table>
+                <p>Etnicki sastav prema popisu iz 2002.‍:</p>
+                <ul>
+                    <li>Srbi: 1.571 (99,68%)</li>
+                    <li>Hrvati: 1 (0,06%)</li>
+                    <li>nepoznato: 3 (0,19%)</li>
+                </ul>
+                <p>Stanovništvo prema polu i starosti:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pol</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>?</td><td>3</td><td>4</td></tr>
+                        <tr><td>80+</td><td>15</td><td>26</td></tr>
+                        <tr><td>75—79</td><td>32</td><td>48</td></tr>
+                        <tr><td>70—74</td><td>57</td><td>54</td></tr>
+                        <tr><td>65—69</td><td>52</td><td>64</td></tr>
+                        <tr><td>60—64</td><td>46</td><td>42</td></tr>
+                        <tr><td>55—59</td><td>40</td><td>36</td></tr>
+                        <tr><td>50—54</td><td>50</td><td>57</td></tr>
+                        <tr><td>45—49</td><td>78</td><td>65</td></tr>
+                        <tr><td>40—44</td><td>58</td><td>46</td></tr>
+                        <tr><td>35—39</td><td>42</td><td>25</td></tr>
+                        <tr><td>30—34</td><td>48</td><td>47</td></tr>
+                        <tr><td>25—29</td><td>64</td><td>50</td></tr>
+                        <tr><td>20—24</td><td>42</td><td>52</td></tr>
+                        <tr><td>15—19</td><td>53</td><td>52</td></tr>
+                        <tr><td>10—14</td><td>49</td><td>33</td></tr>
+                        <tr><td>5—9</td><td>38</td><td>44</td></tr>
+                        <tr><td>0—4</td><td>33</td><td>31</td></tr>
+                        <tr><td><strong>Prosek :</strong></td><td><strong>41,5</strong></td><td><strong>43,5</strong></td></tr>
+                    </tbody>
+                </table>
+                <p>Broj domaćinstava prema popisima iz perioda 1948—2002.:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Godina popisa</th>
+                            <th>1948.</th>
+                            <th>1953.</th>
+                            <th>1961.</th>
+                            <th>1971.</th>
+                            <th>1981.</th>
+                            <th>1991.</th>
+                            <th>2002.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Broj domaćinstava</td><td>444</td><td>462</td><td>504</td><td>491</td><td>510</td><td>469</td><td>461</td></tr>
+                    </tbody>
+                </table>
+                <p>Broj domaćinstava po broju članova prema popisu iz 2002.:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Broj članova</th>
+                            <th>1</th>
+                            <th>2</th>
+                            <th>3</th>
+                            <th>4</th>
+                            <th>5</th>
+                            <th>6</th>
+                            <th>7</th>
+                            <th>8</th>
+                            <th>9</th>
+                            <th>10 i više</th>
+                            <th>Prosek</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Broj domaćinstava</td><td>90</td><td>104</td><td>74</td><td>47</td><td>65</td><td>48</td><td>20</td><td>7</td><td>3</td><td>3</td><td>3,42</td></tr>
+                    </tbody>
+                </table>
+                <p>Stanovništvo staro 15 i više godina po bračnom stanju i polu:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pol</th>
+                            <th>Ukupno</th>
+                            <th>Neoženjen/Neudata</th>
+                            <th>Oženjen/Udata</th>
+                            <th>Udovac/Udovica</th>
+                            <th>Razveden/Razvedena</th>
+                            <th>Nepoznato</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Muški</td><td>680</td><td>189</td><td>426</td><td>40</td><td>23</td><td>2</td></tr>
+                        <tr><td>Ženski</td><td>668</td><td>91</td><td>420</td><td>137</td><td>14</td><td>6</td></tr>
+                        <tr><td><strong>UKUPNO</strong></td><td><strong>1.348</strong></td><td><strong>280</strong></td><td><strong>846</strong></td><td><strong>177</strong></td><td><strong>37</strong></td><td><strong>8</strong></td></tr>
+                    </tbody>
+                </table>
+                <p>Stanovništvo po delatnostima koje obavlja:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pol</th>
+                            <th>Ukupno</th>
+                            <th>Poljoprivreda, lov i šumarstvo</th>
+                            <th>Ribartsvo</th>
+                            <th>Vađenje rude i kamena</th>
+                            <th>Prerađivačka industrija</th>
+                            <th>Proizvodnja i snabdevanje</th>
+                            <th>Građevinarstvo</th>
+                            <th>Trgovina</th>
+                            <th>Hoteli i restorani</th>
+                            <th>Saobraćaj, skladištenje i veze</th>
+                            <th>Finansijsko posredovanje</th>
+                            <th>Nekretnine</th>
+                            <th>Državna uprava i odbrana</th>
+                            <th>Obrazovanje</th>
+                            <th>Zdravstveni i socijalni rad</th>
+                            <th>Ostale uslužne aktivnosti</th>
+                            <th>Privatna domaćinstva</th>
+                            <th>Eksteritorijalne organizacije i tela</th>
+                            <th>Nepoznato</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Muški</td><td>365</td><td>54</td><td>0</td><td>98</td><td>105</td><td>7</td><td>28</td><td>12</td><td>8</td><td>26</td><td>0</td><td>2</td><td>3</td><td>5</td><td>6</td><td>3</td><td>0</td><td>0</td><td>8</td></tr>
+                        <tr><td>Ženski</td><td>154</td><td>40</td><td>0</td><td>6</td><td>37</td><td>1</td><td>4</td><td>20</td><td>8</td><td>4</td><td>0</td><td>5</td><td>1</td><td>11</td><td>12</td><td>1</td><td>0</td><td>0</td><td>4</td></tr>
+                        <tr><td><strong>Ukupno</strong></td><td><strong>519</strong></td><td><strong>94</strong></td><td><strong>0</strong></td><td><strong>104</strong></td><td><strong>142</strong></td><td><strong>8</strong></td><td><strong>32</strong></td><td><strong>32</strong></td><td><strong>16</strong></td><td><strong>30</strong></td><td><strong>0</strong></td><td><strong>7</strong></td><td><strong>4</strong></td><td><strong>16</strong></td><td><strong>18</strong></td><td><strong>4</strong></td><td><strong>0</strong></td><td><strong>0</strong></td><td><strong>12</strong></td></tr>
+                    </tbody>
+                </table> -->
+                <h3>Porodice u Venčanama</h3>
+                <p>Istorija Venčana isprepletena je sa migratornim talasima koji su oblikovali njenu demografsku sliku. Kroz šest velikih migracija, selo je dobijalo nove stanovnike, obogaćujući svoju kulturnu i društvenu strukturu.</p>
+                <h4>1. Dve najstarije porodice (kraj 17. veka):</h4>
+                <ul>
+                    <li><strong>Tomaševići</strong> (ogranici: Nenadovići, Jovanovići, Garići (Pavlovići), Đurđevići) - Naselili Udbinu, gde je počeo život Venčana kao sela. Slava: Sveti Nikola.</li>
+                    <li><strong>Gerasimovići</strong> (ogranici: Jerinići (Radovanovići), Markovići) - Poreklom iz Gornjeg Milanovca. Slava: Sveti Nikola.</li>
+                </ul>
+                <h4>2. Doseljavanje u 18. veku (devet rodova):</h4>
+                <p>Ova migracija bila je etnički najraznovrsnija, sa migrantima iz Hrvatske, Bosne i Hercegovine i Crne Gore.</p>
+                <ul>
+                    <li><strong>Nerandžići</strong> (ogranici: Tomići) - Iz Sjenice, sa Jovanovićima čine jedan rod. Slava: Aranđelovdan.</li>
+                    <li><strong>Jovanovići</strong> - Iz Sjenice. Slava: Sveti car Lazar.</li>
+                    <li><strong>Perišići</strong> (ogranici: Nikitovići, Markovići II, Milivojevići) - Iz Plava (župa), Crna Gora. Od 1860. nosili prezime Simonić. Krajem 18. veka bili najbrojnija porodica u selu, naselili Kamenicu. Slava: Sveti Alimpije i Sveta Petka.</li>
+                    <li><strong>Gašići</strong> - Iz Kraljeva, od plemena Gaša. Slava: Aranđelovdan.</li>
+                    <li><strong>Đurovići</strong> (ogranici: Damnjanovići, Ivanovići, Kuzmanovići, Simeunovići) - Iz Sandžaka, Crna Gora (oko Rožaja). Uz Perišiće, dugo najbrojnija i najproduktivnija porodica u Kamenici. Slava: Sveti Vrači.</li>
+                    <li><strong>Lukići</strong> - Iz Bosne i Hercegovine. Slava: Sveti Luka.</li>
+                    <li><strong>Begovići</strong> - Iz Bosne i Hercegovine. Slava: Sveti Luka.</li>
+                    <li><strong>Vasići</strong> - Iz okoline užičke Požege, naselili deo Bunavicu. Slava: Sveti Jovan.</li>
+                    <li><strong>Joksimovići</strong> - Iz Starog Vlaha, sa Konstantinovićima čine jedan rod. Slava: Đurđevdan.</li>
+                    <li><strong>Konstantinovići</strong> - Iz Starog Vlaha. Slava: Đurđevdan.</li>
+                </ul>
+                <h4>3. Posle Karađorđevog ustanka (1804. godine) - deset porodica:</h4>
+                <p>Najveći broj potekao iz Novopazarskog sandžaka.</p>
+                <ul>
+                    <li><strong>Ćirići</strong> - Iz Sjenice, sa Obradovićima čine jedan rod. Slava: Sveti Nikola.</li>
+                    <li><strong>Obradovići</strong> - Iz Sjenice. Slava: Sveti Nikola.</li>
+                    <li><strong>Milinkovići</strong> - Iz Sjenice, naselili gornji Maglovac. Slava: Aranđelovdan.</li>
+                    <li><strong>Nešići</strong> (ogranici: Jankovići, Mitrovići) - Iz Oreovice, Bosna i Hercegovina. Doselili se nakon ubistva spahije. Slava: Đurđevdan.</li>
+                    <li><strong>Lazarevići</strong> - Iz Sjenice. Slava: Sveti Jovan.</li>
+                    <li><strong>Demirovići</strong> - Iz Brajkovca, potekli od Višnjića. Slava: Sveti Jovan.</li>
+                    <li><strong>Spasojevići</strong> - Iz lazarevačke Trbušnice. Slava: Aranđelovdan.</li>
+                    <li><strong>Šišovići</strong> (ogranici: Radovanovići) - Sa planine Rudnik. Slava: Sveti prorok Jeremija.</li>
+                    <li><strong>Erići</strong> (ogranici: Jestratijevići) - Iz okoline Užica. Slava: Sveti Luka.</li>
+                    <li><strong>Petrovići</strong> - Iz Srema. Slava: Sveta Petka.</li>
+                </ul>
+                <h4>4. Druga polovina 19. veka (devet rodova bez ogranaka):</h4>
+                <ul>
+                    <li><strong>Jevtići</strong> - Iz okoline Užica. Slava: Sveti Jovan.</li>
+                    <li><strong>Petrovići II</strong> - Iz Orašca. Slava: Sveti Joakim i Ana.</li>
+                    <li><strong>Savići</strong> - Iz Orašca, potekli od Milanovića. Slava: Aranđelovdan.</li>
+                    <li><strong>Lakićevići</strong> - Iz Bijelog Polja, Crna Gora (oko 1879. godine). Slava: Sveti Stefan.</li>
+                    <li><strong>Jankovići II</strong> - Iz Osata, Bosna i Hercegovina. Slava: Sveti Jovan.</li>
+                    <li><strong>Markovići III</strong> - Iz Babajića na Ljigu. Slava: Sveti Nikola.</li>
+                    <li><strong>Jovanovići II</strong> - Sa planine Rudnik. Slava: Sveti car Lazar.</li>
+                    <li><strong>Petrovići III</strong> - Iz Osata, Bosna i Hercegovina. Slava: Sveti Jovan.</li>
+                    <li><strong>Krsmanovići</strong> - Iz Orašca. Slava: Sveti Nikola.</li>
+                </ul>
+                <h4>5. Oko Prvog svetskog rata:</h4>
+                <ul>
+                    <li><strong>Đakovići</strong> - Iz Prkosave. Slava: Sveti Nikola.</li>
+                    <li><strong>Stepanovići</strong> - Iz Prkosave. Slava: Sveti Nikola.</li>
+                    <li><strong>Anđelići</strong> - Iz Kruševice (potekli od Radojčića), došli 1920. godine. Slava: Sveti Jovan.</li>
+                </ul>
+                <h4>6. Šesti talas (od 2010. godine):</h4>
+                <p>Ovaj savremeni talas obeležen je migracijama iz gradova u sela, posebno iz obližnjeg Beograda, što je dodatno intenzivirano od pandemije COVID-19. Prihod vikendaša je još veći.</p>
             </section>
         </div>
     </main>
 </BaseLayout>
 
+{/* Styling for the page */}
 <style>
+    /* Global body styles for scroll behavior and background color */
     body {
-        overflow-y: auto !important;
-        height: auto !important;
-        background-color: #111;
+        overflow-y: auto !important; /* Enable vertical scrolling */
+        height: auto !important; /* Allow height to adjust to content */
+        background-color: #111; /* Dark background color */
     }
+    /* Styles for the main content wrapper */
     .page-content {
-        color: #f0f0f0;
+        color: #f0f0f0; /* Light text color */
     }
 
+    /* Styles for the header wrapper */
     .header-wrapper {
-        position: relative; 
-        height: 40vh;
+        position: relative; /* Relative positioning for child absolute elements */
+        height: 40vh; /* 40% of viewport height */
         display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        overflow: hidden; 
+        justify-content: center; /* Center content horizontally */
+        align-items: center; /* Center content vertically */
+        text-align: center; /* Center text */
+        overflow: hidden; /* Hide overflowing content */
     }
 
+    /* Styles for the header background image */
     .header-background {
-        position: absolute;
+        position: absolute; /* Absolute positioning within the header-wrapper */
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-position: center;
-        filter: blur(5px);
-        transform: scale(1.1); 
-        z-index: 1;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        background-size: cover; /* Cover the entire area */
+        background-position: center; /* Center the background image */
+        filter: blur(5px); /* Apply a blur effect */
+        transform: scale(1.1); /* Slightly zoom in for blur effect */
+        z-index: 1; /* Behind the header content */
     }
 
+    /* Styles for the header content (title) */
     .header-content {
-        position: relative;
-        z-index: 2; 
-        color: white;
-        text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
-        padding: 20px;
-        background-color: rgba(0, 0, 0, 0.4);
-        border-radius: 10px;
+        position: relative; /* Relative positioning for z-index */
+        z-index: 2; /* Above the background image */
+        color: white; /* White text color */
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.8); /* Text shadow for readability */
+        padding: 20px; /* Padding around the title */
+        background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black background */
+        border-radius: 10px; /* Rounded corners */
     }
 
+    /* Styles for the main title (h1) in the header */
     .header-content h1 {
-        font-family: 'Orbitron', sans-serif;
-        font-size: clamp(2rem, 6vw, 4rem);
-        margin: 0;
+        font-family: 'Orbitron', sans-serif; /* Futuristic font */
+        font-size: clamp(2rem, 6vw, 4rem); /* Responsive font size */
+        margin: 0; /* Remove default margin */
     }
 
+    /* Styles for the main text container */
     .text-container {
-        max-width: 800px;
-        margin: 40px auto;
-        padding: 0 20px;
-        line-height: 1.8;
+        max-width: 800px; /* Maximum width for readability */
+        margin: 40px auto; /* Center horizontally with top/bottom margin */
+        padding: 0 20px; /* Horizontal padding */
+        line-height: 1.8; /* Increased line height for readability */
     }
+    /* Margin for each section */
     section { margin-bottom: 40px; }
+
     h2 {
-        border-bottom: 2px solid white; padding-bottom: 10px; margin-bottom: 20px;
+        border-bottom: 2px solid white; /* White bottom border */
+        padding-bottom: 10px; /* Padding below the border */
+        margin-bottom: 20px; /* Margin below the heading */
+    }
+
+    h3, h4 {
+        color: #e0e0e0; 
+        margin-top: 30px;
+        margin-bottom: 15px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        color: #f0f0f0;
+    }
+    th, td {
+        border: 1px solid #444;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #333;
+    }
+
+    ul {
+        list-style-type: disc;
+        margin-left: 20px;
+        margin-bottom: 20px;
+    }
+    ul li {
+        margin-bottom: 5px;
     }
 </style>
