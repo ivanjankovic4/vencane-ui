@@ -1,5 +1,4 @@
 ---
-// Fajl: src/pages/gallery/index.astro (FINALNA DIJAGNOSTIČKA VERZIJA)
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import AlbumCard from '../../components/AlbumCard.astro';
 
@@ -10,7 +9,6 @@ const allImages = await import.meta.glob(
 );
 
 console.log('[KORAK 2] Pronađeno ukupno slika:', Object.keys(allImages).length);
-// Ako je ovde 0, problem je u putanji ili slikama. Ako nije, idemo dalje.
 
 const albums: { [key: string]: any } = {};
 const basePath = '/src/assets/gallery/';
@@ -18,7 +16,6 @@ const basePath = '/src/assets/gallery/';
 console.log('[KORAK 3] Počinjem grupisanje u albume...');
 
 for (const path in allImages) {
-    // Logika za izvlačenje imena foldera
     const slug = path.substring(basePath.length).split('/')[0];
 
     console.log(`--> Analiziram putanju: "${path}" | Izvučen slug: "${slug}"`);

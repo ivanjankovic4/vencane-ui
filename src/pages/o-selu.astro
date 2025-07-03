@@ -1,30 +1,23 @@
 ---
-// Import BaseLayout component for consistent page structure
+
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-// Import the background image for the header
 import backgroundImage from '../assets/dji_homepage_picture.jpg';
 ---
 
-{/* BaseLayout provides the fundamental structure for the page */}
 <BaseLayout>
-    {/* Main content area of the page */}
     <main class="page-content">
         
-        {/* Header section with a background image and title */}
         <div class="header-wrapper">
-            {/* Background image for the header, with a blur effect */}
             <div class="header-background" style={`background-image: url(${backgroundImage.src})`}></div>
-            {/* Content overlaying the background image */}
             <div class="header-content">
-                {/* Main title of the page */}
+
                 <h1>Priča o Venčanima</h1>
             </div>
         </div>
         
-        {/* Container for the main text content */}
         <div class="text-container">
-            {/* Section about Venčane's tradition */}
+
             <section>
                 <h2>Šumadijsko selo sa bogatom tradicijom</h2>
                 <p>
@@ -35,7 +28,6 @@ import backgroundImage from '../assets/dji_homepage_picture.jpg';
                 </p>
             </section>
             
-            {/* Section about Venčane's history and culture */}
             <section>
                 <h2>Istorija i Kultura</h2>
                 <p>
@@ -338,76 +330,69 @@ import backgroundImage from '../assets/dji_homepage_picture.jpg';
     </main>
 </BaseLayout>
 
-{/* Styling for the page */}
+
 <style>
-    /* Global body styles for scroll behavior and background color */
     body {
-        overflow-y: auto !important; /* Enable vertical scrolling */
-        height: auto !important; /* Allow height to adjust to content */
-        background-color: #111; /* Dark background color */
+        overflow-y: auto !important;
+        height: auto !important; 
+        background-color: #111; 
     }
-    /* Styles for the main content wrapper */
     .page-content {
-        color: #f0f0f0; /* Light text color */
+        color: #f0f0f0; 
     }
 
-    /* Styles for the header wrapper */
     .header-wrapper {
-        position: relative; /* Relative positioning for child absolute elements */
-        height: 40vh; /* 40% of viewport height */
+        position: relative; 
+        height: 40vh; 
         display: flex;
-        justify-content: center; /* Center content horizontally */
-        align-items: center; /* Center content vertically */
-        text-align: center; /* Center text */
-        overflow: hidden; /* Hide overflowing content */
+        justify-content: center; 
+        align-items: center; 
+        text-align: center;
+        overflow: hidden; 
     }
 
-    /* Styles for the header background image */
     .header-background {
-        position: absolute; /* Absolute positioning within the header-wrapper */
+        position: absolute;
         top: 0;
         left: 0;
-        width: 100%; /* Full width */
-        height: 100%; /* Full height */
-        background-size: cover; /* Cover the entire area */
-        background-position: center; /* Center the background image */
-        filter: blur(5px); /* Apply a blur effect */
-        transform: scale(1.1); /* Slightly zoom in for blur effect */
-        z-index: 1; /* Behind the header content */
+        width: 100%; 
+        height: 100%; 
+        background-size: cover;
+        background-position: center; 
+        filter: blur(5px); 
+        transform: scale(1.1); 
+        z-index: 1; 
     }
 
-    /* Styles for the header content (title) */
     .header-content {
-        position: relative; /* Relative positioning for z-index */
-        z-index: 2; /* Above the background image */
-        color: white; /* White text color */
-        text-shadow: 2px 2px 8px rgba(0,0,0,0.8); /* Text shadow for readability */
-        padding: 20px; /* Padding around the title */
-        background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black background */
-        border-radius: 10px; /* Rounded corners */
+        position: relative; 
+        z-index: 2; 
+        color: white;
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.8); 
+        padding: 20px; 
+        background-color: rgba(0, 0, 0, 0.4); 
+        border-radius: 10px;
     }
 
-    /* Styles for the main title (h1) in the header */
     .header-content h1 {
-        font-family: 'Orbitron', sans-serif; /* Futuristic font */
-        font-size: clamp(2rem, 6vw, 4rem); /* Responsive font size */
-        margin: 0; /* Remove default margin */
+        font-family: 'Orbitron', sans-serif; 
+        font-size: clamp(2rem, 6vw, 4rem); 
+        margin: 0;
     }
 
-    /* Styles for the main text container */
     .text-container {
-        max-width: 800px; /* Maximum width for readability */
-        margin: 40px auto; /* Center horizontally with top/bottom margin */
-        padding: 0 20px; /* Horizontal padding */
-        line-height: 1.8; /* Increased line height for readability */
+        max-width: 800px; 
+        margin: 40px auto; 
+        padding: 0 20px; 
+        line-height: 1.8;
     }
-    /* Margin for each section */
+
     section { margin-bottom: 40px; }
 
     h2 {
-        border-bottom: 2px solid white; /* White bottom border */
-        padding-bottom: 10px; /* Padding below the border */
-        margin-bottom: 20px; /* Margin below the heading */
+        border-bottom: 2px solid white; 
+        padding-bottom: 10px; 
+        margin-bottom: 20px; 
     }
 
     h3, h4 {

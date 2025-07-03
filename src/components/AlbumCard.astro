@@ -1,10 +1,8 @@
 ---
-// Fajl: src/components/AlbumCard.astro (ISPRAVLJENA VERZIJA)
 import { Image } from 'astro:assets';
 
 export interface Props {
   albumSlug: string;
-  // Ovde koristimo 'any' da zaobiđemo TypeScript grešku
   coverImage: any;
 }
 const { albumSlug, coverImage } = Astro.props;

@@ -1,27 +1,20 @@
 ---
-// Fajl: src/pages/gallery/[...slug].astro
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 
-// Ova funkcija govori Astro-u koje stranice da generiše
 export async function getStaticPaths() {
-  // 1. Pronalazimo sve slike u svim podfolderima galerije
   const allImages = await import.meta.glob('/src/assets/gallery/**/*.{jpeg,jpg,png,gif,webp,}');
 
-  // 2. Izvlačimo jedinstvena imena foldera (slugs) iz putanja slika
   const uniqueSlugs = new Set(
     Object.keys(allImages).map(path => {
-      // Iz putanje "/src/assets/gallery/trojice-2025/slika.jpg" izvlačimo "trojice-2025"
       return path.split('/')[4];
     })
   );
 
-  // 3. Kreiramo listu putanja koje Astro treba da napravi
   const paths = Array.from(uniqueSlugs).map(slug => ({
     params: { slug }
   }));
 
-  // 4. Dodajemo i putanju za osnovnu /gallery stranicu, koja će prikazati "opste"
   paths.push({ params: { slug: undefined } });
   
   return paths;
@@ -72,7 +65,6 @@ const slikeZaPrikaz = Object.fromEntries(
 </BaseLayout>
 
 <script>
-  // Script za PhotoSwipe ostaje isti
   import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5/dist/photoswipe-lightbox.esm.js';
   
   const lightbox = new PhotoSwipeLightbox({
@@ -85,7 +77,6 @@ const slikeZaPrikaz = Object.fromEntries(
 </script>
 
 <style>
-  /* CSS stilovi ostaju isti */
   .gallery-container { padding: 40px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
   .gallery-title { text-transform: capitalize; }
   .image-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; margin-top: 40px; }
