@@ -3,7 +3,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import EventCard from "../components/EventCard.astro";
 import trojiceSlika from "../assets/gallery/trojice-2025/slika5.jpg";
-import staraCrkvaSlika from "../assets/gallery/opste/slika1.jpg";
+import staraCrkvaSlika from "../assets/private-gallery/staraCrkva.jpg";
 ---
 
 <BaseLayout>
@@ -25,8 +25,8 @@ import staraCrkvaSlika from "../assets/gallery/opste/slika1.jpg";
             <EventCard
                 title="Proslava Svetog Pantelejmona"
                 description="Kod stare crkve brvnare, posvećene Sv. Pantelejmonu, svake godine se okupljaju meštani i gosti. Uz tradicionalno pripremanje gulaša, ovaj dan je simbol zajedništva i očuvanja tradicije."
-                imageUrl="/src/assets/private-gallery/stara_crkva.jpg"
-                galleryBaseUrl={staraCrkvaSlika.src}
+                imageUrl={staraCrkvaSlika.src}
+                galleryBaseUrl="none"
                 fixedDate="9. avgust, svake godine"
             />
         </div>
