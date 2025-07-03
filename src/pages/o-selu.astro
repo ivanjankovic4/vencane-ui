@@ -1,7 +1,7 @@
 ---
-// Fajl: src/pages/o-selu.astro
+
 import BaseLayout from '../layouts/BaseLayout.astro';
-// 1. Uvozimo istu pozadinsku sliku kao sa početne strane
+
 import backgroundImage from '../assets/dji_homepage_picture.jpg';
 ---
 <BaseLayout>
@@ -10,7 +10,7 @@ import backgroundImage from '../assets/dji_homepage_picture.jpg';
         <div class="header-wrapper">
             <div class="header-background" style={`background-image: url(${backgroundImage.src})`}></div>
             <div class="header-content">
-                <h1>Priča o Venčanama</h1>
+                <h1>Priča o Venčanima</h1>
             </div>
         </div>
         
@@ -40,7 +40,6 @@ import backgroundImage from '../assets/dji_homepage_picture.jpg';
 </BaseLayout>
 
 <style>
-    /* 3. CSS Stilovi su ažurirani */
     body {
         overflow-y: auto !important;
         height: auto !important;
@@ -50,15 +49,14 @@ import backgroundImage from '../assets/dji_homepage_picture.jpg';
         color: #f0f0f0;
     }
 
-    /* Novi stilovi za header */
     .header-wrapper {
-        position: relative; /* Važno za pozicioniranje elemenata unutar njega */
+        position: relative; 
         height: 40vh;
         display: flex;
         justify-content: center;
         align-items: center;
         text-align: center;
-        overflow: hidden; /* Skriva delove zamućenja koji vire */
+        overflow: hidden; 
     }
 
     .header-background {
@@ -70,17 +68,16 @@ import backgroundImage from '../assets/dji_homepage_picture.jpg';
         background-size: cover;
         background-position: center;
         filter: blur(5px);
-        transform: scale(1.1); /* Blago zumira sliku da se ivice blura ne vide */
+        transform: scale(1.1); 
         z-index: 1;
     }
 
     .header-content {
         position: relative;
-        z-index: 2; /* Postavlja sadržaj iznad pozadine */
+        z-index: 2; 
         color: white;
         text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
         padding: 20px;
-        /* Polutransparentni sloj preko slike za bolju čitljivost */
         background-color: rgba(0, 0, 0, 0.4);
         border-radius: 10px;
     }
@@ -91,7 +88,6 @@ import backgroundImage from '../assets/dji_homepage_picture.jpg';
         margin: 0;
     }
 
-    /* Stilovi za tekstualni sadržaj ostaju isti */
     .text-container {
         max-width: 800px;
         margin: 40px auto;
