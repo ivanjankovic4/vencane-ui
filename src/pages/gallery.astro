@@ -3,6 +3,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { Image } from 'astro:assets';
 
+
 const sveSlike = await import.meta.glob<{ default: ImageMetadata }>(
   '/src/assets/gallery/**/*.{jpeg,jpg,png,gif,webp}'
 );
